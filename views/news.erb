@@ -18,18 +18,34 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>News</title>
+    <title>Important News</title>
   </head>
   <body>
 
     <div class="container mt-5">
-      <h1>Where are you right now?</h1>
-        <form action="/news">
-            <label>Enter your location:</label>
-            <input type="text" name="location">
-            <button type="submit" class="btn btn-primary">Go there</submit>
-        </form>
-    </div>
+        <h1>Geocoding</h1>
+            <h2> Location: <%= @location %> </h2>
+            <h2> Latitude: <%= @forecast["latitude"] %> </h2>
+            <h2> Longitude: <%= @forecast["longitude"] %> </h2>
+
+        <h1>Current Weather</h1>
+            <h2> Temperature: <%= @forecast["currently"]["temperature"] %> </h2>
+            <h2> Summary: <%= @forecast["currently"]["summary"] %> </h2>
+
+        <h1>5 Day Forecast</h1>
+            <h2>1 Day</h2>
+                <h2> Temperature: <%= @forecast["daily"]["data"][0]["temperatureHigh"] %> </h2>
+                <h2> Summary: <%= @forecast["daily"]["data"][0]["summary"] %> </h2>
+            <h2>5 Day</h2>
+                <h2> Temperature: <%= @forecast["daily"]["data"][4]["temperatureHigh"] %> </h2>
+                <h2> Summary: <%= @forecast["daily"]["data"][4]["summary"] %> </h2>
+
+        <h1> Top Headlines</h1>
+            <h2> <%= @headlines["articles"]["title"] %> </h2>
+
+          
+
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
