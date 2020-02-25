@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -22,26 +22,69 @@
   </head>
   <body>
 
-    <div class="container mt-5">
-        <h1>Geocoding</h1>
-            <h2> Location: <%= @location %> </h2>
-            <h2> Latitude: <%= @forecast["latitude"] %> </h2>
-            <h2> Longitude: <%= @forecast["longitude"] %> </h2>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Relevant news you can trust</span>
+    </nav>
 
-        <h1>Current Weather</h1>
-            <h2> Temperature: <%= @forecast["currently"]["temperature"] %> </h2>
-            <h2> Summary: <%= @forecast["currently"]["summary"] %> </h2>
+    <br>
 
-        <h1>5 Day Forecast</h1>
-            <h2>1 Day</h2>
-                <h2> Temperature: <%= @forecast["daily"]["data"][0]["temperatureHigh"] %> </h2>
-                <h2> Summary: <%= @forecast["daily"]["data"][0]["summary"] %> </h2>
-            <h2>5 Day</h2>
-                <h2> Temperature: <%= @forecast["daily"]["data"][4]["temperatureHigh"] %> </h2>
-                <h2> Summary: <%= @forecast["daily"]["data"][4]["summary"] %> </h2>
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Location: <%= @location %></h4>
+        <hr>
+            <p class="mb-0">Longitude: <%= @forecast["longitude"] %> </p>
+        <hr>
+            <p class="mb-0">Latitude: <%= @forecast["latitude"] %> </p>
+    </div>
 
-        <h1> Top Headlines</h1>
-            <h2> <%= @headlines["articles"]["title"] %> </h2>
+    <br>        
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Temperature</th>
+                <th scope="col">Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Today</th>
+                <td><%= @forecast["currently"]["temperature"] %></td>
+                <td><%= @forecast["currently"]["summary"] %></td>
+            </tr>
+            <tr>
+                <th scope="row">1 day</th>
+                <td><%= @forecast["daily"]["data"][0]["temperatureHigh"]%></td>
+                <td><%= @forecast["daily"]["data"][0]["summary"] %></td>
+            </tr>
+            <tr>
+                <th scope="row">5 day</th>
+                <td><%= @forecast["daily"]["data"][4]["temperatureHigh"]%></td>
+                <td><%= @forecast["daily"]["data"][4]["summary"]%></td>
+            </tr>
+         </tbody>
+    </table>
+
+    <br>
+
+    <div class="card">
+        <h5 class="card-header">Top news</h5>
+            <div class="card-body">
+                <h5 class="card-title"><%= @headlines["articles"][0]["title"]%></h5>
+                    <p class="card-text"><%= @headlines["articles"][0]["description"]%></p>
+                        <a href=<%= @headlines["articles"][0]["url"]%> class="btn btn-primary">Go to</a>
+            </div>
+            <div class="card-body">
+                    <h5 class="card-title"><%= @headlines["articles"][1]["title"]%></h5>
+                            <p class="card-text"><%= @headlines["articles"][1]["description"]%></p>
+                                <a href=<%= @headlines["articles"][1]["url"]%> class="btn btn-primary">Go to</a>
+            </div>
+            <div class="card-body">
+                    <h5 class="card-title"><%= @headlines["articles"][2]["title"]%></h5>
+                            <p class="card-text"><%= @headlines["articles"][2]["description"]%></p>
+                                <a href=<%= @headlines["articles"][2]["url"]%> class="btn btn-primary">Go to</a>
+            </div>
+    </div>
 
           
 

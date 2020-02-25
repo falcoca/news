@@ -1,0 +1,8 @@
+.navbar.navbar-light.bg-light {
+    font-family: 'Bungee';
+    font-size: 30px;
+}   
+
+.alert.alert-success {
+    background-color: blue
+}

@@ -38,7 +38,7 @@ get "/news" do
     
     url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=4f241391ea354482876ecca4e5bc2a5b"
     @headlines = HTTParty.get(url).parsed_response.to_hash
-   pp @headlines
+   puts @headlines
     #news is now a Hash you can pretty print (pp) and parse for your output
 
      view "news"
