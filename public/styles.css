@@ -1,8 +1,18 @@
 .navbar.navbar-light.bg-light {
     font-family: 'Bungee';
     font-size: 30px;
+    background-color: lightskyblue;
 }   
 
 .alert.alert-success {
-    background-color: blue
+    background-color:lightslategrey;
+    color: black;
+    width: 800px;
+    margin: auto
 }
+
+.table {
+    margin: auto;
+    width: 800px
+}
+    
