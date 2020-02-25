@@ -30,16 +30,22 @@
 
     <div class="alert alert-success" role="alert">
         <div class= "container" style="text-align:center">
-        <h4 class="alert-heading">Location: <%= @location %></h4>
+            <h4 class="alert-heading">Location: <%= @location %></h4>
         <hr>
             <p class="mb-0">Longitude: <%= @forecast["longitude"] %> </p>
         <hr>
             <p class="mb-0">Latitude: <%= @forecast["latitude"] %> </p>
-    </div>
+        </div>
     </div>
 
     <br>
-       
+   
+    <div class="row">
+        <div class="col text-center">
+                <h2>Weather snapshot</h2>
+        </div>
+    </div>
+
     <table class="table">
         <thead>
             <tr>
@@ -69,30 +75,40 @@
 
     <br>
 
-    <h2> Extended Forecast </h2>
-        <%= for zebra in @forecast_array
-            "A high temperature of #{zebra["temperatureHigh"]} and #{zebra["summary"]}"
-        end %> 
+    <div class="row">
+        <div class="col text-center">
+                <h2>Extended forecast for the next 8 days</h2>
+        </div>
+    </div>
+
+    <div class = "container" style = "text-align:center">
+        <% for zebra in @forecast_array %>
+            <p><%="A high temperature of #{zebra["temperatureHigh"]} and #{zebra["summary"]}"%></p>
+        <% end %> 
+    </div>
 
     <br>
+    <br>
 
-    <div class="card">
-        <h5 class="card-header">Top news</h5>
-            <div class="card-body">
-                <h5 class="card-title"><%= @headlines["articles"][0]["title"]%></h5>
-                    <p class="card-text"><%= @headlines["articles"][0]["description"]%></p>
+    <div class = "container">
+        <div class="card">
+            <h5 class="card-header">Top news</h5>
+                <div class="card-body">
+                    <h5 class="card-title"><%= @headlines["articles"][0]["title"]%></h5>
+                        <p class="card-text"><%= @headlines["articles"][0]["description"]%></p>
                         <a href=<%= @headlines["articles"][0]["url"]%> class="btn btn-primary">Go to</a>
-            </div>
-            <div class="card-body">
+                </div>
+                <div class="card-body">
                     <h5 class="card-title"><%= @headlines["articles"][1]["title"]%></h5>
-                            <p class="card-text"><%= @headlines["articles"][1]["description"]%></p>
-                                <a href=<%= @headlines["articles"][1]["url"]%> class="btn btn-primary">Go to</a>
-            </div>
-            <div class="card-body">
+                        <p class="card-text"><%= @headlines["articles"][1]["description"]%></p>
+                        <a href=<%= @headlines["articles"][1]["url"]%> class="btn btn-primary">Go to</a>
+                </div>
+                <div class="card-body">
                     <h5 class="card-title"><%= @headlines["articles"][2]["title"]%></h5>
-                            <p class="card-text"><%= @headlines["articles"][2]["description"]%></p>
-                                <a href=<%= @headlines["articles"][2]["url"]%> class="btn btn-primary">Go to</a>
-            </div>
+                        <p class="card-text"><%= @headlines["articles"][2]["description"]%></p>
+                        <a href=<%= @headlines["articles"][2]["url"]%> class="btn btn-primary">Go to</a>
+                </div>
+        </div>
     </div>
 
           
