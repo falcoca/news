@@ -92,7 +92,7 @@
 
     <div class = "container">
         <div class="card">
-            <h5 class="card-header">Top news</h5>
+            <h5 class="card-header">Top 5 Headlines</h5>
                 <div class="card-body">
                     <h5 class="card-title"><%= @headlines["articles"][0]["title"]%></h5>
                         <p class="card-text"><%= @headlines["articles"][0]["description"]%></p>
@@ -107,6 +107,16 @@
                     <h5 class="card-title"><%= @headlines["articles"][2]["title"]%></h5>
                         <p class="card-text"><%= @headlines["articles"][2]["description"]%></p>
                         <a href=<%= @headlines["articles"][2]["url"]%> class="btn btn-primary">Go to</a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= @headlines["articles"][3]["title"]%></h5>
+                        <p class="card-text"><%= @headlines["articles"][3]["description"]%></p>
+                        <a href=<%= @headlines["articles"][3]["url"]%> class="btn btn-primary">Go to</a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= @headlines["articles"][4]["title"]%></h5>
+                        <p class="card-text"><%= @headlines["articles"][4]["description"]%></p>
+                        <a href=<%= @headlines["articles"][4]["url"]%> class="btn btn-primary">Go to</a>
                 </div>
         </div>
     </div>
